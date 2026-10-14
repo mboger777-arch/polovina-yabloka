@@ -244,7 +244,7 @@ SCENES.l4=()=>{const R=[{k:'l4q1',h:'l4h1',n:1,d:2,ans:4,c:'#ff4fa0'},{k:'l4q2',
 SCENES.l5=()=>{const R=[{k:'l5q1',h:'l5h1',d:2,n:10,ans:5,o:[4,5,8]},{k:'l5q2',h:'l5h2',d:4,n:16,ans:4,o:[4,8,12]},{k:'l5q3',h:'l5h3',d:4,n:12,ans:3,o:[3,6,4]}];
   let r=0,rk={x:220,y:400,tx:220,ty:400,inv:0},ast=[],stars=[],boss={x:1100,y:360,hp:3,hit:0},tries=0,spawn=0,wave=0;
   const s={busy:true,info:()=>({r,hp:boss.hp,stars:stars.map(t=>({x:t.x,y:t.y,v:t.v,ok:t.v===R[r]?.ans}))}),
-    draw(){bg('l5',0);hud('5. Ракета');const q=R[Math.min(r,2)];qbox((x,y)=>{txt('Лови звезду:',x-120,y,38,'#3a2410');frac(1,q.d,x+40,y,38,'#ff6a00');txt('от '+q.n,x+130,y,38,'#3a2410');},520);
+    draw(){bg('l5',1);hud('5. Ракета');const q=R[Math.min(r,2)];qbox((x,y)=>{txt('Лови звезду:',x-120,y,38,'#3a2410');frac(1,q.d,x+40,y,38,'#ff6a00');txt('от '+q.n,x+130,y,38,'#3a2410');},520);
       // звёзды-фон
       for(let i=0;i<60;i++){const x=(i*211-now*(40+i%3*60))%W;cx.fillStyle='rgba(255,255,255,'+(.3+i%3*.25)+')';cx.fillRect((x+W)%W,(i*97)%H,2+i%3,2+i%3);}
       if(!s.busy||s.fly){spawn-=dt;if(spawn<0){spawn=1.1;ast.push({x:W+60,y:240+Math.random()*440,v:220+Math.random()*120,r:26+Math.random()*24,a:0});}
